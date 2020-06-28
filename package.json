@@ -1,0 +1,100 @@
+{
+  "name": "test_app",
+  "version": "0.1.0",
+  "description": "-",
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flow": "flow",
+    "prebuild": "rm -rf dist/*",
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "start:dev": "node config/webpack-dev-server.js",
+    "clean-examples": "rm -rf dist-examples/*",
+    "build-pages": "npm run clean-examples && webpack --config config/webpack-prod-config.js",
+    "start:prod": "npm run build-pages && serve dist-examples",
+    "start:prod-nb": "http-server ./dist-examples --port 3000",
+    "serve-help": "serve --help",
+    "predeploy": "npm run build-pages",
+    "deploy": "gh-pages -d dist-examples"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmkari/test_app.git"
+  },
+  "keywords": [
+    "test_app"
+  ],
+  "author": "Miko Kari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmkari/test_app/issues"
+  },
+  "homepage": "https://github.com/mmkari/test_app#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "acorn": "^6.3.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^4.2.0",
+    "flow-bin": "^0.107.0",
+    "gh-pages": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "path": "^0.12.7",
+    "prettier-eslint": "^9.0.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-hot-loader": "^4.12.13",
+    "react-styleguidist": "^9.1.16",
+    "style-loader": "^1.0.0",
+    "styled-components": "^4.4.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.40.2",
+    "webpack-command": "^0.5.0",
+    "webpack-dev-server": "^3.8.1",
+    "webpack-merge": "^4.2.2"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "styled-components": ">= 4.4.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.8.0",
+    "@material-ui/icons": "^4.5.1",
+    "classnames": "^2.2.6",
+    "crypto-js": "^3.1.9-1",
+    "http-server": "^0.12.0",
+    "polished": "^3.4.2",
+    "react-animations": "^1.0.0",
+    "react-draggable": "^4.1.0",
+    "react-motion": "^0.5.2",
+    "react-new-window": "^0.1.2",
+    "react-star-picker": "^1.0.2",
+    "react-swipeable": "^5.5.0",
+    "react-transition-group": "^4.3.0"
+  }
+}
