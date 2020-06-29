@@ -382,6 +382,10 @@ const Game = ({
     }
   };
 
+  const toggleSecondScreen = () => {
+    setPageOpen((v) => !v)
+  }
+
   const onBackClick = () => {
     setOpen(true);
   };
@@ -392,9 +396,6 @@ const Game = ({
   // cardWidth
   return (
     <div className="Game">
-      <button onClick={() => setPageOpen((v) => !v)}>
-        {pageOpen ? 'Close page' : 'Open page'}
-      </button>
 
       <Timer
         ref={timerRef}
@@ -459,6 +460,7 @@ const Game = ({
               teamName={settings.teams[teamTurn]}
               onBackClick={onBackClick}
               showScores={showScores}
+              toggleSecondScreen={toggleSecondScreen}
             />
 
             <Modal

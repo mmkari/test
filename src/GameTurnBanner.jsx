@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // import classnames from 'classnames';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
+import ScreenShareIcon from '@material-ui/icons/ScreenShare';
 // import Button from './Button';
 import { ThemedButton as Button } from './Button';
 import withThemeContext from './withThemeContext';
@@ -44,6 +45,7 @@ const GameTurnBanner = ({
   onBackClick,
   showScores,
   theme,
+  toggleSecondScreen
 }: Props) => {
   //
   return (
@@ -54,6 +56,9 @@ const GameTurnBanner = ({
       <span>{teamName}</span>
       <BannerButton onClick={showScores}>
         <FormatListNumberedIcon />
+      </BannerButton>
+      <BannerButton onClick={toggleSecondScreen}>
+        <ScreenShareIcon />
       </BannerButton>
     </Banner>
   );
