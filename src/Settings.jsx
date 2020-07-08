@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
 import NumberInput from './NumberInput';
-// import Button from './Button';
 
 import ToggleButtons from './ToggleButtons';
 // import RadioButtons, { RadioButtonsButton } from './RadioButtons';
@@ -13,6 +12,11 @@ import ToggleButtons from './ToggleButtons';
 // import Button from './Button';
 import { ThemedButton as Button } from './Button';
 import Input from './Input';
+// import Button from './Button';
+
+const StyledNumberInput = styled(NumberInput)`
+  // align-items: center;
+`;
 
 const TeamRowContainer = styled.div`
   display: inline-flex;
@@ -133,14 +137,14 @@ const Settings = ({ values, onConfirm }) => {
   return (
     <SettingsContainer>
       <h3>Time limit</h3>
-      <NumberInput
+      <StyledNumberInput
         name="timeLimit"
         unit={10}
         onChange={updateConf}
         value={conf.timeLimit}
       />
       <h3>Point goal</h3>
-      <NumberInput
+      <StyledNumberInput
         name="endScore"
         unit={5}
         onChange={updateConf}

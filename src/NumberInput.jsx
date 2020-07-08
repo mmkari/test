@@ -14,6 +14,11 @@ const NumberInputContainer = styled.div`
     // height: auto;
     width: 56px;
   }
+
+  .NumberInput-input {
+    text-align: center;
+    max-width: 200px;
+  }
 `;
 
 const formatNumber = (value) => {
@@ -23,14 +28,15 @@ const formatNumber = (value) => {
 };
 const handleFocus = (e) => e.target.select();
 
-const NumberInput = ({ unit = 1, onChange, value, name }) => {
+const NumberInput = ({ unit = 1, onChange, value, name, className }) => {
   const unitText = unit !== 1 ? unit : null;
   return (
-    <NumberInputContainer className="NumberInput">
+    <NumberInputContainer className={classnames('NumberInput', className)}>
       <Button onClick={() => onChange(name, formatNumber(value - unit))}>
         {`-${unitText !== null ? unitText : ''}`}
       </Button>
       <Input
+        className="NumberInput-input"
         type="text"
         value={value}
         onChange={(e) => onChange(name, formatNumber(e.target.value))}
