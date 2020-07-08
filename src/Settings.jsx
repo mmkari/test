@@ -94,9 +94,11 @@ const NameForm = ({ value, onChange, name, maxTeams = 4 }) => {
 const SettingsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const NameFormContainer = styled.div`
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   margin: 2em 5em;

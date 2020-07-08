@@ -6,14 +6,8 @@ import classnames from 'classnames';
 import { ThemedButton as Button } from './Button';
 
 const ToggleButtonsButton = styled(Button)`
-  // background: green;
-  // &.checked {
-  //   background: lightgreen;
-  // }
-
   height: 100%;
-  width: 90px;
-  // min-width: 80px;
+  max-width: 150px;
 `;
 
 const ToggleButtonsContainer = styled.div`
