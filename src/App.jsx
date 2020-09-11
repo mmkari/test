@@ -10,6 +10,7 @@ import Header from './helperComponents';
 import wordListNouns from '../examples/subst';
 import wordListAdjectives from '../examples/adjectives';
 import wordListVerbs from '../examples/verbs';
+import withThemeContext from './withThemeContext';
 
 const AppContent = styled.div`
   position: relative;
@@ -185,4 +186,8 @@ function App({ appSettings, devMode }) {
   );
 }
 
-export default App;
+const StyledApp = styled(App)`
+  background: ${({ theme }) => theme.background};
+`;
+
+export default withThemeContext(StyledApp);

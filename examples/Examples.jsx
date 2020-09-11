@@ -38,18 +38,22 @@ const StyledButton = styled.button`
   margin: 5px 0;
 `;
 
-const AnimationArea = styled.div`
+const AnimationArea = styled.div.attrs({ className: 'AnimationArea' })`
   filter: ${({ blur }) => (blur ? 'blur(1px)' : 'none')};
   background: ${({ color }) => color};
   width: 100%;
   // min-width: 400px;
   // padding: 20px;
+
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 `;
-const FlexContainer = styled.div`
-  display: flex;
+const FlexContainer = styled.div.attrs({ className: 'FlexContainer' })`
+  height: 100%;
+  // display: flex;
   align-items: center;
   justify-content: center;
 `;
@@ -151,11 +155,7 @@ const Examples = ({ className, useAuthorization }) => {
         <SettingsIcon color="error" />
       </button>
       <FlexContainer>
-        <AnimationArea
-          blur={menuOpen}
-          className="AnimationArea"
-          color={currentTheme.background}
-        >
+        <AnimationArea blur={menuOpen} color={currentTheme.background}>
           <ThemeContext.Provider value={currentTheme}>
             {/* <SoundContext.Provider value={soundEffects}> */}
             <SoundProvider volume={appSettings.volume} files={files}>
@@ -192,6 +192,9 @@ const StyledExamples = styled(Examples)`
   // display: flex;
   width: 100%;
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 export default StyledExamples;
