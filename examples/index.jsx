@@ -3,4 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Examples from './Examples';
 
-ReactDOM.render(<Examples />, document.getElementById('root'));
+export const USE_AUTHORIZATION = false;
+
+ReactDOM.render(
+  <Examples useAuthorization={USE_AUTHORIZATION} />,
+  document.getElementById('root')
+);

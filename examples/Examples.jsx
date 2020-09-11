@@ -100,7 +100,7 @@ const files = {
   startSound: startFile,
 };
 
-const Examples = ({ className }) => {
+const Examples = ({ className, useAuthorization }) => {
   const [authorized, setAuthorized] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -118,7 +118,7 @@ const Examples = ({ className }) => {
   const toggleMenu = () => setMenuOpen((o) => !o);
   const closeMenu = () => setMenuOpen(false);
 
-  if (!authorized) {
+  if (useAuthorization && !authorized) {
     return (
       <>
         {/* <StyledGameBoard /> */}
