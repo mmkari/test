@@ -93,7 +93,7 @@
     "react-draggable": "^4.1.0",
     "react-motion": "^0.5.2",
     "react-new-window": "^0.1.2",
-    "react-star-picker": "^1.0.2",
+    "react-star-picker": "^2.0.2",
     "react-swipeable": "^5.5.0",
     "react-transition-group": "^4.3.0"
   }
