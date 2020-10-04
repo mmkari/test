@@ -1,3 +1,3 @@
-# test app
+# Word guessing game
 
-https://mmkari.github.io/test_app/
+The game is hosted at https://mmkari.github.io/test_app/
