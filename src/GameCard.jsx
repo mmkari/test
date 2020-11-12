@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import Card from './Card';
 

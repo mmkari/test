@@ -9,7 +9,7 @@ import ScreenShareIcon from '@material-ui/icons/ScreenShare';
 import { ThemedButton as Button } from './Button';
 import withThemeContext from './withThemeContext';
 
-const Banner = styled.div`
+const Banner = styled.div.attrs({ className: 'Banner' })`
   background: ${({ theme }) => theme.main};
   border: 1px solid ${({ theme }) => theme.highlight};
   height: 60px;
@@ -45,7 +45,7 @@ const GameTurnBanner = ({
   onBackClick,
   showScores,
   theme,
-  toggleSecondScreen
+  toggleSecondScreen,
 }: Props) => {
   //
   return (
@@ -54,9 +54,9 @@ const GameTurnBanner = ({
         <ArrowBackIcon />
       </BannerButton>
       <span>{teamName}</span>
-      <BannerButton onClick={showScores}>
+      {/* <BannerButton onClick={showScores}>
         <FormatListNumberedIcon />
-      </BannerButton>
+      </BannerButton> */}
       <BannerButton onClick={toggleSecondScreen}>
         <ScreenShareIcon />
       </BannerButton>

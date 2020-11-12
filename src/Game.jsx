@@ -59,7 +59,7 @@ const ActionButtons = styled.div`
   z-index: 0;
 `;
 
-const CardArea = styled.div`
+const CardArea = styled.div.attrs({ className: 'CardArea' })`
   height: 500px;
   position: relative;
   display: flex;
@@ -125,19 +125,19 @@ const GameStateMachine = {
   },
 };
 
-const playSomeSounds = (soundEffects) => {
-  const { thumpSound, dramaticSound } = soundEffects;
-  thumpSound.play(2);
-  thumpSound.play(3);
-  thumpSound.play(4);
-  thumpSound.play(5);
-  thumpSound.play(6);
-  thumpSound.play(7);
-  for (let i = 8; i < 10; i += 0.2) {
-    thumpSound.play(i);
-  }
-  dramaticSound.play();
-};
+// const playSomeSounds = (soundEffects) => {
+//   const { thumpSound, dramaticSound } = soundEffects;
+//   thumpSound.play(2);
+//   thumpSound.play(3);
+//   thumpSound.play(4);
+//   thumpSound.play(5);
+//   thumpSound.play(6);
+//   thumpSound.play(7);
+//   for (let i = 8; i < 10; i += 0.2) {
+//     thumpSound.play(i);
+//   }
+//   dramaticSound.play();
+// };
 
 type GameProps = {|
   changeWordIndex: () => void,
@@ -154,7 +154,7 @@ const Game = ({
   words,
   wordIndex,
   // state,
-  appSettings,
+  // appSettings,
   settings,
   scores,
   setScores,
@@ -383,8 +383,8 @@ const Game = ({
   };
 
   const toggleSecondScreen = () => {
-    setPageOpen((v) => !v)
-  }
+    setPageOpen((v) => !v);
+  };
 
   const onBackClick = () => {
     setOpen(true);
@@ -396,7 +396,6 @@ const Game = ({
   // cardWidth
   return (
     <div className="Game">
-
       <Timer
         ref={timerRef}
         onTimeout={onTimeout}

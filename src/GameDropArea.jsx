@@ -2,8 +2,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
 // import classnames from 'classnames';
-import { CSSTransition, Transition } from 'react-transition-group';
-import { AgainSvg, CrossSvg, CheckSvg } from './svgs';
+import {
+  CSSTransition,
+  // Transition
+} from 'react-transition-group';
+import {
+  // AgainSvg,
+  CrossSvg,
+  CheckSvg,
+} from './svgs';
 import withThemeContext from './withThemeContext';
 
 const MyTransitionButton = styled.div`
