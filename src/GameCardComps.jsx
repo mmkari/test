@@ -35,8 +35,7 @@ const fadeInDownAnimation = keyframes`${fadeInDown}`;
 const CardContainer = styled.div`
   animation: 1s ${fadeInDownAnimation};
   &.canDrag {
-
-  cursor: grab;
+    cursor: grab;
   }
   &.dragging {
     cursor: grabbing;
@@ -52,25 +51,6 @@ const CardContainer = styled.div`
     align-items: center;
     justify-content: center;
     user-select: none;
-
-    // box-shadow: 0 0 ${({ offsetX }) =>
-      Math.abs(offsetX) / 10.0}px rgba(81, 203, 238, 1);
-    // font-size: 34px;
-
-    // // FASTER?:
-    // &::after {
-    //     position: absolute;
-    //     content: '';
-    //     height: 100%;
-    //     width: 100%;
-    //     top: 0;
-    //     left: 0;
-    //     z-index: -1;
-    //     // background: purple;
-
-    //     box-shadow: 20px 20px 20px red;
-    //     opacity: ${({ offsetX }) => Math.min(offsetX / 100.0, 1)}
-    // }
   }
   &.cardTurned {
     .FlipContainer {
@@ -109,6 +89,15 @@ const FlipContainer = styled.div`
     transform: rotateY(-180deg);
   }
 `;
+const GameCardCompsContainer = styled.div.attrs({ className: 'GameCardComps' })`
+  .Card {
+    word-break: break-all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+`;
 
 const GameCardComps = ({
   currentPosition,
@@ -126,45 +115,47 @@ const GameCardComps = ({
   //
 
   return (
-    <Draggable
-      position={currentPosition}
-      onDrag={onDrag}
-      onStop={onStopDrag}
-      disabled={timerState !== 'on'}
-    >
-      <CardContainer
-        offsetX={currentPosition.x}
-        className={classnames('CardContainer', {
-          cardTurned: timerState !== 'start',
-          dragging: currentPosition.x !== 0,
-          canDrag: timerState === 'on',
-        })}
-      >
-        <GameDroppedCard
-          dropAnimation={dropAnimation}
-          dropPosition={dropPosition}
-          cardHeight={cardHeight}
-          word={droppedWord}
-        />
+    <GameCardCompsContainer>
+      <GameDroppedCard
+        dropAnimation={dropAnimation}
+        dropPosition={dropPosition}
+        cardHeight={cardHeight}
+        word={droppedWord}
+      />
 
-        <FlipContainer
-          className="FlipContainer"
-          width={cardWidth}
-          height={cardHeight}
+      <Draggable
+        position={currentPosition}
+        onDrag={onDrag}
+        onStop={onStopDrag}
+        disabled={timerState !== 'on'}
+      >
+        <CardContainer
+          offsetX={currentPosition.x}
+          className={classnames('CardContainer', {
+            cardTurned: timerState !== 'start',
+            dragging: currentPosition.x !== 0,
+            canDrag: timerState === 'on',
+          })}
         >
-          <GameCardBackside width={cardWidth} height={cardHeight} />
-          {/* <Card height={cardHeight} lang="fi">{words[wordIndex]}</Card> */}
-          <GameCard
-            dropAnimation={dropAnimation}
-            cardHeight={cardHeight}
-            word={word}
-          />
-        </FlipContainer>
-        {timerState === 'start' && (
-          <StartCardButton onClick={startRound}>Start!</StartCardButton>
-        )}
-      </CardContainer>
-    </Draggable>
+          <FlipContainer
+            className="FlipContainer"
+            width={cardWidth}
+            height={cardHeight}
+          >
+            <GameCardBackside width={cardWidth} height={cardHeight} />
+            {/* <Card height={cardHeight} lang="fi">{words[wordIndex]}</Card> */}
+            <GameCard
+              dropAnimation={dropAnimation}
+              cardHeight={cardHeight}
+              word={word}
+            />
+          </FlipContainer>
+          {timerState === 'start' && (
+            <StartCardButton onClick={startRound}>Start!</StartCardButton>
+          )}
+        </CardContainer>
+      </Draggable>
+    </GameCardCompsContainer>
   );
 };
 
