@@ -16,8 +16,11 @@ module.exports = merge(common, {
     path: paths.appBuild,
     publicPath: "/test_app/"
   },
+  // optimization: {
+  //   minimizer: [new UglifyJSPlugin()],
+  // },
   plugins: [
-    new UglifyJSPlugin(),
+    // new UglifyJSPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production")
