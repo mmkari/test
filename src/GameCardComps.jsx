@@ -115,11 +115,15 @@ const GameCardComps = ({
 }) => {
   //
 
-  let fontSize = 34;
-  if (word.length >= 12) {
-    fontSize = 30;
+  let fontSize = 30;
+  if (word.length >= 8) {
+    fontSize = 24;
+  } else if (word.length >= 12) {
+    fontSize = 20;
   } else if (word.length >= 16) {
-    fontSize = 26;
+    fontSize = 16;
+  } else if (word.length >= 18) {
+    fontSize = 8;
   }
 
   return (
