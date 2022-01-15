@@ -7,6 +7,7 @@ import { fadeInDown } from 'react-animations';
 import GameCardBackside from './GameCardBackside';
 import GameDroppedCard from './GameDroppedCard';
 import GameCard from './GameCard';
+import Card from './Card';
 
 const StartCardButton = styled.button`
   font-size: 34px;
@@ -114,6 +115,13 @@ const GameCardComps = ({
 }) => {
   //
 
+  let fontSize = 34;
+  if (word.length >= 12) {
+    fontSize = 30;
+  } else if (word.length >= 16) {
+    fontSize = 26;
+  }
+
   return (
     <GameCardCompsContainer>
       <GameDroppedCard
@@ -143,11 +151,14 @@ const GameCardComps = ({
             height={cardHeight}
           >
             <GameCardBackside width={cardWidth} height={cardHeight} />
-            {/* <Card height={cardHeight} lang="fi">{words[wordIndex]}</Card> */}
+            <Card height={cardHeight} lang="fi" fontSize={fontSize}>
+              {word}
+            </Card>
             <GameCard
               dropAnimation={dropAnimation}
               cardHeight={cardHeight}
               word={word}
+              fontSize={fontSize}
             />
           </FlipContainer>
           {timerState === 'start' && (

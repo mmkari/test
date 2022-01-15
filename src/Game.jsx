@@ -409,7 +409,7 @@ const Game = ({
           remainingFraction,
           minutes,
           seconds,
-          startTimer,
+          // startTimer,
         }) => (
           <div>
             {pageOpen && (

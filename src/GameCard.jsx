@@ -67,14 +67,9 @@ const GameCardContainer = styled.div`
     // }
 `;
 
-const GameCard = ({ dropAnimation, cardHeight, word }) => {
+const GameCard = ({ dropAnimation, cardHeight, word, fontSize }) => {
   //
-  let fontSize = 34;
-  if (word.length >= 12) {
-    fontSize = 30;
-  } else if (word.length >= 16) {
-    fontSize = 26;
-  }
+
   return (
     <CSSTransition in={dropAnimation} timeout={1000} classNames="new-card">
       <MyTransition id="33" className="GameCard">

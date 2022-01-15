@@ -19,6 +19,7 @@ const StyledCard = styled(Card)`
   height: ${({ height }) => height}px;
   border-radius: 4px;
   top: 0;
+  font-size: ${({ fontSize }) => fontSize}px;
 
   .Card-header {
     border-bottom: 1px solid lightgray;
