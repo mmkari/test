@@ -31,13 +31,6 @@ import skipFile from '../src/skip.wav';
 import timeupFile from '../src/timeup.wav';
 import startFile from '../src/start.wav';
 
-const StyledButton = styled.button`
-  height: 40px;
-  width: 100%;
-  font-size: 24px;
-  margin: 5px 0;
-`;
-
 const AnimationArea = styled.div.attrs({ className: 'AnimationArea' })`
   filter: ${({ blur }) => (blur ? 'blur(1px)' : 'none')};
   background: ${({ color }) => color};
@@ -89,9 +82,6 @@ const initialAppSettings = {
   colorPaletteIndex: 0,
   // font: 0,
 };
-
-// import {rgba} from 'polished';
-// background: rgba(color, alpha);
 
 const devMode = false;
 
